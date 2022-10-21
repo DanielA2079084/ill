@@ -3,18 +3,28 @@ from ill import parser, interpreter
 debug = True
 
 def main():
-	if debug:
-		path = input("Path: ")
-		with open(path, "r") as file:
-			ascii_codes = parser(file.read()).parse()
-			interpreter(ascii_codes).interpret()
-			return
 	while True:
-		code = input(":: ")
-		if code == 'exit':
-			break
-		ascii_codes = parser(code).parse()
-		interpreter(ascii_codes).interpret()
+		# For debugging
+		if debug:
+			# path = input("Path: ")
+			path = "tests/hello_world.ill"
+			# Check if file is valid
+			if path[-4:] != '.ill':
+				print("Invalid file")
+				continue
+			# Open the file
+			try:
+				with open(path, "r") as file:
+					ascii_codes = parser(file.read()).parse()
+					interpreter(ascii_codes).interpret()
+					return
+			except FileNotFoundError:
+				print("Invalid path")
+		else:
+			code = input(":: ")
+			if code == 'exit': break; # For exiting
+			ascii_codes = parser(code).parse()
+			interpreter(ascii_codes).interpret()
 
 if __name__ == "__main__":
 	main()

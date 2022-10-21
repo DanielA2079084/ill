@@ -7,9 +7,10 @@ class interpreter(object):
 
 	def interpret(self) -> None:
 		for index, dec in enumerate(self.ascii_codes):
+			# Alter values if not in range of 0 - 255
 			while dec > 255:
 				dec -= 255
 			while dec < 0:
 				dec += 255
-			sys.stdout.write(chr(dec))
-		print()
+			sys.stdout.write(chr(dec)) # Output converted values
+		print() # \n

@@ -1,4 +1,3 @@
-# Parser
 class parser(object):
 
 	def __init__(self, src : str) -> None:
@@ -10,44 +9,50 @@ class parser(object):
 		self.pos += 1
 		self.current_char = self.src[self.pos] if self.pos < len(self.src) else None
 
+	# Parse values
 	def parse(self) -> list:
 		result = []
-		first = 65
-		self.advance()
+		first = 65 # Start with the ASCII value of 'A'
+		self.advance() # Initialize self.current_char
 		while self.current_char != None:
-			if self.current_char == ' ':
+			if self.current_char == ' ': # Output
 				result.append(first)
-			elif self.current_char == 'I':
+			elif self.current_char == '\t': # Delimiter
+				pass
+			elif self.current_char == 'I': # Increment
 				first += 1
-			elif self.current_char == 'l':
+			elif self.current_char == 'l': # Decrement
 				first -= 1
-			elif self.current_char == 'i' or self.current_char == 'L':
+			elif self.current_char == 'i' or self.current_char == 'L': # Multiplication and Division
 				operator = self.current_char
 				self.advance()
 				if (
-					# self.current_char != ' ' and
+					self.current_char != ' ' and
+					self.current_char != '\t' and
 					self.current_char != 'I' and 
 					self.current_char != 'l'
-				):
+				): # Check if next character is not a possible value
 					raise Exception("Invalid use of operator")
-				second = 0
+				second = 0 # Right node of the operation
 				while (
-					self.current_char == 'I' or
-					self.current_char == 'l'
+					self.current_char and
+					(
+						self.current_char == 'I' or
+						self.current_char == 'l'
+					)
 				):
 					if self.current_char == 'I':
 						second += 1
 					elif self.current_char == 'l':
 						second -= 1
 					self.advance()
-				if not self.current_char:
-					raise Exception("Invalid value for operation")
-				if operator == 'i':
+				# if not self.current_char:
+				# 	raise Exception("Invalid value for operation")
+				if operator == 'i': # Multiplication
 					first *= second
-				elif operator == 'L':
+				elif operator == 'L': # Division
 					first = int(first / second)
-				if self.current_char == ' ':
-					result.append(first)
+				self.pos -= 1
 			else:
 				raise Exception("Invalid character")
 			self.advance()
