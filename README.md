@@ -10,7 +10,7 @@ Ill is an esoteric programming language that is inspired by BrainF.
 	- [`i`](#i)
 	- [`L`](#L)
 	- [` `](# )
-	- [`	`](#	)
+	- [`\t`](#\t)
 - [**Contributing to Ill**](#Contributing-to-Ill)
 
 ## Getting Started
@@ -48,7 +48,7 @@ IIIIII/*wont show output*/
 IIIIII /*will show 'F'*/
 ```
 
-### `	`
+### `\t`
 Multiplication and division delimiter
 ```
 IIIILIIII /*A*/
