@@ -17,9 +17,10 @@ def main():
 				with open(path, "r") as file:
 					ascii_codes = parser(file.read()).parse()
 					interpreter(ascii_codes).interpret()
-					return
+					file.close()
 			except FileNotFoundError:
 				print("Invalid path")
+			break
 		else:
 			code = input(":: ")
 			if code == 'exit': break; # For exiting
