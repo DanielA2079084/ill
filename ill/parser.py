@@ -17,7 +17,7 @@ class parser(object):
 		while self.current_char != None:
 			if self.current_char == ' ': # Output
 				result.append(first)
-			elif self.current_char == '\t': # Delimiter
+			elif self.current_char == '\n': # Delimiter
 				pass
 			elif self.current_char == 'I': # Increment
 				first += 1
@@ -28,7 +28,7 @@ class parser(object):
 				self.advance()
 				if (
 					self.current_char != ' ' and
-					self.current_char != '\t' and
+					self.current_char != '\n' and
 					self.current_char != 'I' and 
 					self.current_char != 'l'
 				): # Check if next character is not a possible value
