@@ -19,7 +19,7 @@ Before writing a program in Ill, we highly advise you to do the following:
 - Change your font type into Sans Serif
 
 ## Syntax
-Ill only consists of 5 different keywords, which are `I`, `l`, `i`, `L`, and ` `. Outputs will show values in the form of characters (converted to ASCII).
+Ill only consists of 6 different keywords, which are `I`, `l`, `i`, `L`, ` `, and `\n`. Outputs will show values in the form of characters (converted to ASCII).
 
 ### **`I`**
 Increases value
