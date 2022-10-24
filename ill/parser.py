@@ -5,12 +5,8 @@ class parser:
 
 	"""
 	Initializes Parser
-	
-	Attributes:
-		src: a string consisting a source code
 	"""
-	def __init__(self, src : str) -> None:
-		self.src = src
+	def __init__(self) -> None:
 		self.line = 1
 		self.pos = -1
 
@@ -24,10 +20,13 @@ class parser:
 	"""
 	Parse source code
 	
+	Attributes:
+		src: a string consisting the source code
 	Result:
 		result: a list filled with integer values
 	"""
-	def parse(self) -> list:
+	def parse(self, src : str) -> list:
+		self.src = src
 		result = []
 		first = 65 # Start with the ASCII value of 'A'
 		self.advance() # Initialize self.current_char
