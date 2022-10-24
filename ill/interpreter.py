@@ -7,18 +7,18 @@ class interpreter(object):
 
 	"""
 	Initializes interpreter
-	
-	Attributes:
-		ascii_codes: a list filled with integers
 	"""
-	def __init__(self, ascii_codes : list) -> None:
-		self.ascii_codes = ascii_codes
+	def __init__(self):
+		pass
 
 	"""
 	Interprets ASCII codes
+	
+	Attributes:
+		ast: a list of integers filled with ASCII codes
 	"""
-	def interpret(self) -> None:
-		for index, dec in enumerate(self.ascii_codes):
+	def interpret(self, ascii_codes : list) -> None:
+		for index, dec in enumerate(ascii_codes):
 			# Alter values if not in range of 0 - 255
 			while dec > 255:
 				dec -= 255
