@@ -71,6 +71,6 @@ class parser:
 					first = int(first / second)
 				self.pos -= 1
 			else:
-				raise Exception("Invalid character")
+				raise Exception(f"Invalid character '{self.current_char}'")
 			self.advance()
 		return result
