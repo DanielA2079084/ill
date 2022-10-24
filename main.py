@@ -1,9 +1,9 @@
 from ill import parser, interpreter
 
-# debug = True
+debug = True
 
-parser_ = None
-interpreter_ = None
+parser_ = parser()
+interpreter_ = interpreter()
 
 """
 Compiles source code
