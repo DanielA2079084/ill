@@ -1,15 +1,32 @@
-class parser(object):
+"""
+Ill's Parser
+"""
+class parser:
 
+	"""
+	Initializes Parser
+	
+	Attributes:
+		src: a string consisting a source code
+	"""
 	def __init__(self, src : str) -> None:
 		self.src = src
 		self.line = 1
 		self.pos = -1
 
+	"""
+	Advances the parser's current position and character
+	"""
 	def advance(self) -> None:
 		self.pos += 1
 		self.current_char = self.src[self.pos] if self.pos < len(self.src) else None
 
-	# Parse values
+	"""
+	Parse source code
+	
+	Result:
+		result: a list filled with integer values
+	"""
 	def parse(self) -> list:
 		result = []
 		first = 65 # Start with the ASCII value of 'A'
