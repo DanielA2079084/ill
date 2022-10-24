@@ -6,7 +6,7 @@ parser_ = None
 interpreter_ = None
 
 """
-Compile's source code
+Compiles source code
 
 Attributes:
 	src: a string consisting the source code
@@ -15,7 +15,7 @@ def compile(src : str) -> None:
 	interpreter_.interpret(parser_.parse(src))
 
 """
-Compile's a source file
+Compiles a source file
 
 Attributes:
 	path: a string consisting the path to the source file
