@@ -65,14 +65,13 @@ class parser:
 	def parse(self, file_name : str, src : str) -> list:
 		self.src = src
 		self.reset_pos()
-		result = []  # The list of ASCII codes
+		result = []
 		first = 65 
 		self.advance()
 		while self.current_char != None:
 			if self.current_char == ' ':  # Output
 				result.append(node(file_name, self.coloumn, self.line, first))
 			elif self.current_char == '\n':  # Delimiter
-				# Reset coloumn and add line value since it's a newline character
 				self.coloumn = 1
 				self.line += 1
 			elif self.current_char == 'I':  # Increment
@@ -89,7 +88,7 @@ class parser:
 					self.current_char != 'l'
 				): 
 					raise Exception("Invalid use of operator")
-				second = 0  # Right node of the operation
+				second = 0
 				while (
 					self.current_char and
 					(
